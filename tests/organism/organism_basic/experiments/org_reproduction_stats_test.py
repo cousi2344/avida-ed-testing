@@ -9,6 +9,7 @@ class OrgRepStatsTest(BaseTest):
     reproduction, specifically regarding to statistics.
     """
 
+    @pytest.mark.usefixtures("hard_reset")
     @pytest.mark.run(order=1)
     def test_org_rep_stats_startup(self):
         """
@@ -27,6 +28,7 @@ class OrgRepStatsTest(BaseTest):
         assert self.op.get_org_num_xor_performed() == 0
         assert self.op.get_org_num_equ_performed() == 0
 
+    @pytest.mark.usefixtures("hard_reset")
     @pytest.mark.run(order=2)
     def test_org_rep_stats_functionality(self):
         """

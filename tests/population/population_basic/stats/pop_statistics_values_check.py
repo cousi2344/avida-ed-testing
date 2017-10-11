@@ -9,6 +9,7 @@ class PopulationStatsValueCheck(BaseTest):
     the Population page.
     """
 
+    @pytest.mark.usefixtures("hard_reset")
     @pytest.mark.run()
     def test_toggle_env_settings(self):
         """

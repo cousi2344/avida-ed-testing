@@ -9,6 +9,7 @@ class OrgRepControlsTest(BaseTest):
     reproduction.
     """
 
+    @pytest.mark.usefixtures("hard_reset")
     @pytest.mark.run(order=1)
     def test_org_rep_ctrl_startup(self):
         """
@@ -22,6 +23,7 @@ class OrgRepControlsTest(BaseTest):
         assert self.op.org_rep_controls_disabled()
         assert self.op.get_cycle() == 0
 
+    @pytest.mark.usefixtures("hard_reset")
     @pytest.mark.run(order=2)
     def test_org_rep_ctrl_functionality(self):
         """

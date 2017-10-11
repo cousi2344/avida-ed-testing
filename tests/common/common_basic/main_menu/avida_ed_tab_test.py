@@ -8,6 +8,7 @@ class AvidaEdTabTest(BaseTest):
     Test class that tests the Avida-ED tab of the main menu bar.
     """
 
+    @pytest.mark.usefixtures("hard_reset")
     @pytest.mark.run()
     def test_about_page(self):
         """

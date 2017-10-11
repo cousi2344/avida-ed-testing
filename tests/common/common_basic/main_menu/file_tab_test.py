@@ -8,6 +8,7 @@ class FileTabTest(BaseTest):
     Test class that tests the File tab of the main menu bar.
     """
 
+    @pytest.mark.usefixtures("hard_reset")
     @pytest.mark.run()
     def test_export_graphics(self):
         """

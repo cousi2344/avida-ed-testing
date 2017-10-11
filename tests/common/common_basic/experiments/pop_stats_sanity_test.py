@@ -38,6 +38,7 @@ class PopStatsSanityTest(BaseTest):
         assert self.pp.get_pop_avg_age() >= 0
 
     @pytest.mark.run(order=2)
+    @pytest.mark.usefixtures("hard_reset")
     def test_pop_stats_sanity_allfxns(self):
         """
         Tests that running an experiment with @all_functions does not create

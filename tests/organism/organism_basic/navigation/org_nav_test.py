@@ -10,6 +10,7 @@ class OrganismNavigationTest(BaseTest):
     within the Organism page.
     """
 
+    @pytest.mark.usefixtures("hard_reset")
     @pytest.mark.run(order=2)
     def test_toggle_org_settings(self):
         """
@@ -24,6 +25,7 @@ class OrganismNavigationTest(BaseTest):
         time.sleep(1)
         assert not self.op.org_settings_displayed()
 
+    @pytest.mark.usefixtures("hard_reset")
     @pytest.mark.run(order=1)
     def test_toggle_org_details(self):
         """

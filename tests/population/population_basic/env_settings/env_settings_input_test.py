@@ -75,6 +75,7 @@ class EnvSettingsInputTest(BaseTest):
         self.bp.util.sleep(3)
 
     @pytest.mark.run(order=4)
+    @pytest.mark.usefixtures("hard_reset")
     def test_input_mut(self):
         """
         Tests that crashes and unexpected behavior do not occur if bad input is
