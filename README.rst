@@ -50,6 +50,7 @@ Affix a '3' to Python-related command on the command line; for example, ``python
 
 Use
 ----
+First, if you are using a virtual environment, make sure that it is activated. You should see the name of the virtual environment in parentheses before each line you type in your command-line interface if the virtual environment is activated.
 
 The easiest way to run the tests is through the test suite files, located in the tests folder. The following command (simply typed into a command-line interface from the root folder of the project) will run all tests classified as 'basic':
 
