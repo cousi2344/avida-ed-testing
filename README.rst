@@ -51,7 +51,7 @@ Affix a '3' to Python-related command on the command line; for example, ``python
 Use
 ----
 
-**Note: If you plan to run the tests locally, you will need to use the --setuipath [PATH] option to specify the location of the folder containing the av_ui folder. In subsequent runs you won't need to do this unless you change the location of av_ui.**
+**Note: If you plan to run the tests locally, you will need to use the --setuipath [PATH] option during your first test run to specify the location of your local copy of the Avida-ED UI. In subsequent runs you won't need to do this unless you change the location of av_ui. See below for more information.**
 
 First, if you are using a virtual environment, make sure that it is activated. You should see the name of the virtual environment in parentheses before each line you type in your command-line interface if the virtual environment is activated.
 
