@@ -25,6 +25,7 @@ class CustomWebServer:
         :return: None.
         """
         os.chdir(self.ui_path)
+        os.chdir("..") # Move up one more directory
         threading.Thread(target=self.httpd.serve_forever, daemon=True).start()
 
     def cleanup(self):

@@ -75,7 +75,7 @@ There are also several command-line options that can be provided:
 
 - --local [true/false]\: Sets whether the tests should be run on a local copy of Avida-ED (using a simple Python web server) or the copy hosted online by MSU. Providing "false" as the argument will run the tests on the MSU version, while any other input (or not specifying) will make the tests run locally.
 
-- --setuipath [PATH]: Used to set the path to the Avida-ED UI repository, which is used to run the tests locally. You should provide the path to the folder containing the ``av_ui`` folder.
+- --setuipath [PATH]: Used to set the path to the Avida-ED UI repository, which is used to run the tests locally. You should provide the path to the ``av_ui`` folder (assuming you didn't change the name of the folder that contains the Git repository).
 
 - --setffpath [PATH]: Used to set the path to the Firefox binary, which at this time is needed to run the tests via Firefox. However, this has not been thoroughly tested and Chrome is recommended to run tests at this time.
 
