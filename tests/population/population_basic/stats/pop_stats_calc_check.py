@@ -3,16 +3,16 @@ import pytest
 from tests.base_test import BaseTest
 
 
-class PopulationStatsValueCheck(BaseTest):
+class PopulationStatsCalculationCheck(BaseTest):
     """
-    Test class that tests navigation between various panels and sub-specializations within
+    Test class that checks for incorrect calculation of statistics values.
     the Population page.
     """
 
     @pytest.mark.run()
-    def test_toggle_env_settings(self):
+    def test_check_calcs(self):
         """
-        Tests toggling the Environmental Settings panel on and off.
+        Tests calculation of avg fitness, offspring cost, and energy acq. rate (as well as # of viable orgs).
 
         :return: None.
         """
