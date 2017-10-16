@@ -9,7 +9,6 @@ class AvidaEdTabTest(BaseTest):
     """
 
     @pytest.mark.run()
-    @pytest.mark.usefixtures("hard_reset")
     def test_about_page(self):
         """
         Tests that the about page works properly.

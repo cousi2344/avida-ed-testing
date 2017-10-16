@@ -8,7 +8,6 @@ class FileTabTest(BaseTest):
     Test class that tests the File tab of the main menu bar.
     """
     @pytest.mark.run()
-    @pytest.mark.usefixtures("hard_reset")
     def test_export_graphics(self):
         """
         Tests that the "Export Graphics" option in the File tab works as

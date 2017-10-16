@@ -10,7 +10,6 @@ class OrgRepStatsTest(BaseTest):
     """
 
     @pytest.mark.run()
-    @pytest.mark.usefixtures("hard_reset")
     def test_org_rep_stats_startup(self):
         """
         Tests that the stats for Organism Reproduction are set to 0 at startup.
@@ -29,7 +28,6 @@ class OrgRepStatsTest(BaseTest):
         assert self.op.get_org_num_equ_performed() == 0
 
     @pytest.mark.run()
-    @pytest.mark.usefixtures("hard_reset")
     def test_org_rep_stats_functionality(self):
         """
         Tests that the controls for Organism Reproduction work as intended when

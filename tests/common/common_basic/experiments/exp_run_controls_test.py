@@ -9,7 +9,6 @@ class ExperimentControlsTest(BaseTest):
     """
 
     @pytest.mark.run()
-    @pytest.mark.usefixtures("hard_reset")
     def test_exp_run_controls(self):
         """
         Tests that a simple experiment can be run and that running, pausing, and

@@ -73,7 +73,7 @@ class BaseTest(unittest.TestCase):
         yield
         self.pp.new_exp_discard()
 
-    @pytest.yield_fixture()
+    @pytest.yield_fixture(autouse=True, scope="function")
     def hard_reset(self, closing_assertions):
         """
         Performs a 'hard reset' at the beginning of an experiment by refreshing

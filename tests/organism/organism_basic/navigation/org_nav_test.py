@@ -11,7 +11,6 @@ class OrganismNavigationTest(BaseTest):
     """
 
     @pytest.mark.run()
-    @pytest.mark.usefixtures("hard_reset")
     def test_toggle_org_settings(self):
         """
         Tests closing the Organism Settings pop-up.
@@ -26,7 +25,6 @@ class OrganismNavigationTest(BaseTest):
         assert not self.op.org_settings_displayed()
 
     @pytest.mark.run()
-    @pytest.mark.usefixtures("hard_reset")
     def test_toggle_org_details(self):
         """
         Tests toggling the Details panel within the Organism page on and off.
