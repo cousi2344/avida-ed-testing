@@ -79,6 +79,8 @@ class BaseTest(unittest.TestCase):
         Performs a 'hard reset' at the beginning of an experiment by refreshing
         the Avida-ED webpage and waits for it to load completely.
 
+        Used by default, since tests no longer run in specific orders.
+
         :return: None.
         """
         yield
