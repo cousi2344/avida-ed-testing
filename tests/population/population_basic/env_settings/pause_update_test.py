@@ -9,8 +9,8 @@ class PauseUpdateTest(BaseTest):
     edited through the Environmental Settings pane in the Population window.
     """
 
+    @pytest.mark.run()
     @pytest.mark.usefixtures("hard_reset")
-    @pytest.mark.run(order=1)
     def test_startup_pause_settings(self):
         """
         Tests that pause settings are correct on startup.
@@ -20,8 +20,8 @@ class PauseUpdateTest(BaseTest):
         assert self.pp.pause_manually_enabled()
         assert not self.pp.pause_at_update_enabled()
 
+    @pytest.mark.run()
     @pytest.mark.usefixtures("hard_reset")
-    @pytest.mark.run(order=2)
     def test_pause_at_update(self):
         """
         Tests that 'Pause at Update' setting will allow user to automatically

@@ -9,7 +9,7 @@ class PopulationNavigationTest(BaseTest):
     the Population page.
     """
 
-    @pytest.mark.run(order=1)
+    @pytest.mark.run()
     @pytest.mark.usefixtures("hard_reset")
     def test_toggle_env_settings(self):
         """
@@ -28,7 +28,7 @@ class PopulationNavigationTest(BaseTest):
         assert self.pp.env_settings_displayed()
         assert not self.pp.grid_displayed()
 
-    @pytest.mark.run(order=2)
+    @pytest.mark.run()
     @pytest.mark.usefixtures("hard_reset")
     def test_toggle_pop_stats(self):
         """

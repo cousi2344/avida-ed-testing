@@ -15,7 +15,8 @@ class BasicNavigationTest(BaseTest):
     one of those three parts of the site.
     """
 
-    @pytest.mark.run(order=3)
+    @pytest.mark.run()
+    @pytest.mark.usefixtures("hard_reset")
     def test_go_to_population(self):
         """
         Tests navigating to the Population page.
@@ -30,6 +31,7 @@ class BasicNavigationTest(BaseTest):
         time.sleep(3)
 
     @pytest.mark.run(order=1)
+    @pytest.mark.usefixtures("hard_reset")
     def test_go_to_organism(self):
         """
         Tests navigating to the Organism page.
@@ -40,7 +42,8 @@ class BasicNavigationTest(BaseTest):
         assert self.bp.organism_displayed()
         time.sleep(3)
 
-    @pytest.mark.run(order=2)
+    @pytest.mark.run()
+    @pytest.mark.usefixtures("hard_reset")
     def test_go_to_analysis(self):
         """
         Tests navigating to the Analysis page.

@@ -9,8 +9,8 @@ class PopulationStatsValueCheck(BaseTest):
     the Population page.
     """
 
-    @pytest.mark.usefixtures("hard_reset")
     @pytest.mark.run()
+    @pytest.mark.usefixtures("hard_reset")
     def test_toggle_env_settings(self):
         """
         Tests toggling the Environmental Settings panel on and off.

@@ -9,7 +9,7 @@ class EnvSettingsInputTest(BaseTest):
     edited through the Environmental Settings pane in the Population window.
     """
 
-    @pytest.mark.run(order=1)
+    @pytest.mark.run()
     @pytest.mark.usefixtures("hard_reset")
     def test_input_dishsize_negnum(self):
         """
@@ -31,7 +31,7 @@ class EnvSettingsInputTest(BaseTest):
         # Wait for a short period so that response to run attempt occurs.
         self.bp.util.sleep(3)
 
-    @pytest.mark.run(order=2)
+    @pytest.mark.run()
     @pytest.mark.usefixtures("hard_reset")
     def test_input_dishsize_zero(self):
         """
@@ -53,7 +53,7 @@ class EnvSettingsInputTest(BaseTest):
         # Wait for a short period so that response to run attempt occurs.
         self.bp.util.sleep(3)
 
-    @pytest.mark.run(order=3)
+    @pytest.mark.run()
     @pytest.mark.usefixtures("hard_reset")
     def test_input_dishsize_str(self):
         """
@@ -74,7 +74,7 @@ class EnvSettingsInputTest(BaseTest):
         # Wait for a short period so that response to run attempt occurs.
         self.bp.util.sleep(3)
 
-    @pytest.mark.run(order=4)
+    @pytest.mark.run()
     @pytest.mark.usefixtures("hard_reset")
     def test_input_mut(self):
         """
