@@ -9,7 +9,7 @@ import pytest
 import sys
 
 if __name__ == '__main__':
-    common_basic_path = r"tests/common/common_basic"
+    common_path = r"tests/common"
     pop_basic_path = r"tests/population/population_basic"
     org_basic_path = r"tests/organism/organism_basic"
     analysis_basic_path = r"tests/analysis/analysis_basic"
@@ -18,7 +18,7 @@ if __name__ == '__main__':
                    "--junitxml=./output/junit_xml/junit_xml.log",
                    "--html=./output/html_report/html_report.html",
                    "--self-contained-html",
-                   common_basic_path,
+                   common_path,
                    pop_basic_path,
                    org_basic_path,
                    analysis_basic_path]

@@ -12,6 +12,16 @@ def driver_setup(request, browser, local, setuipath, setffpath, seturl):
     driver.quit()
 
 
+def pytest_collection_modifyitems(config, items):
+    if config.getoption("--runslow"):
+        # --runslow given in cli: do not skip slow tests
+        return
+    skip_slow = pytest.mark.skip(reason="need --runslow option to run")
+    for item in items:
+        if "slow" in item.keywords:
+            item.add_marker(skip_slow)
+
+
 def pytest_addoption(parser):
     parser.addoption("--browser",
                      help="Name of internet browser used for testing.")
@@ -23,6 +33,10 @@ def pytest_addoption(parser):
                      help="Path for Firefox binary.")
     parser.addoption("--seturl",
                      help="URL for web-hosted Avida-ED.")
+    parser.addoption("--runslow",
+                     action="store_true",
+                     default=False,
+                     help="Run all tests, including time-consuming ones.")
 
 
 @pytest.fixture(scope="session")
