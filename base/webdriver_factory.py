@@ -95,5 +95,5 @@ class WebDriverFactory:
 
         :return: None.
         """
-        if self.is_local:
+        if not self.is_online:
             self.server.cleanup()
