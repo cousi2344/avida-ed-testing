@@ -1,6 +1,8 @@
 import threading
 import os
 
+from shutil import copyfile
+
 from http.server import SimpleHTTPRequestHandler, HTTPServer
 
 from base.config import Configuration
@@ -14,9 +16,11 @@ class CustomWebServer:
         """
         self.config = Configuration()
         self.test_path = os.getcwd()
+        self.chromedriver_path = "\chromedriver.exe"
         self.ui_path = self.config.get_ui_path()
         self.server_address = ('127.0.0.1', 8000)
         self.httpd = HTTPServer(self.server_address, SimpleHTTPRequestHandler)
+        self.full_chromedriver_path = ""
 
     def run_http_server(self):
         """
@@ -26,6 +30,10 @@ class CustomWebServer:
         """
         os.chdir(self.ui_path)
         os.chdir("..") # Move up one more directory
+        self.full_chromedriver_path = os.getcwd() + self.chromedriver_path
+        if not os.path.isfile(self.full_chromedriver_path):
+            copyfile(self.test_path + self.chromedriver_path,
+                 self.full_chromedriver_path)
         threading.Thread(target=self.httpd.serve_forever, daemon=True).start()
 
     def cleanup(self):
