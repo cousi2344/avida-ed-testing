@@ -71,9 +71,11 @@ Alternatively, one can simply run ``pytest`` from the ``avida_ed_testing`` folde
 
 There are also several command-line options that can be provided:
 
-- --browser [BROWSER]\: Changes the browser used to run the tests. Current options are chrome (default) and firefox (not fully supported yet).
+- --online: Runs the tests online at the URL provided via --seturl. Can be used to run tests on the publicly released version of Avida-ED or an instance running on another web server.
 
-- --local [true/false]\: Sets whether the tests should be run on a local copy of Avida-ED (using a simple Python web server) or the copy hosted online by MSU. Providing "false" as the argument will run the tests on the MSU version, while any other input (or not specifying) will make the tests run locally.
+- --runslow: Runs tests marked as 'slow' because they are more advanced tests or take a longer amount of time. These tests will not run otherwise.
+
+- --browser [BROWSER]: Changes the browser used to run the tests. Current options are chrome (default) and firefox (not fully supported yet).
 
 - --setuipath [PATH]: Used to set the path to the Avida-ED UI repository, which is used to run the tests locally. You should provide the path to the ``av_ui`` folder (assuming you didn't change the name of the folder that contains the Git repository).
 
