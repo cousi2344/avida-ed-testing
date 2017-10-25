@@ -3,8 +3,8 @@ from base.webdriver_factory import WebDriverFactory
 
 
 @pytest.yield_fixture(scope="session")
-def driver_setup(request, browser, local, setuipath, setffpath, seturl):
-    wdf = WebDriverFactory(browser, local, setuipath, setffpath, seturl)
+def driver_setup(request, browser, online, setuipath, setffpath, seturl):
+    wdf = WebDriverFactory(browser, online, setuipath, setffpath, seturl)
     driver = wdf.get_webdriver_instance()
 
     yield driver
@@ -25,7 +25,9 @@ def pytest_collection_modifyitems(config, items):
 def pytest_addoption(parser):
     parser.addoption("--browser",
                      help="Name of internet browser used for testing.")
-    parser.addoption("--local",
+    parser.addoption("--online",
+                     action="store_true",
+                     default=False,
                      help="True if a local copy of Avida-ED should be run.")
     parser.addoption("--setuipath",
                      help="Path for folder containing local Avida-ED files.")
@@ -45,8 +47,8 @@ def browser(request):
 
 
 @pytest.fixture(scope="session")
-def local(request):
-    return request.config.getoption("--local")
+def online(request):
+    return request.config.getoption("--online")
 
 
 @pytest.fixture(scope="session")
@@ -57,6 +59,7 @@ def setuipath(request):
 @pytest.fixture(scope="session")
 def setffpath(request):
     return request.config.getoption("--setffpath")
+
 
 @pytest.fixture(scope="session")
 def seturl(request):

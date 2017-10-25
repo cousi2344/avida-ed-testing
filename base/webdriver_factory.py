@@ -19,7 +19,7 @@ class WebDriverFactory:
     if not path.exists(__dwn_path):
         makedirs(__dwn_path)
 
-    def __init__(self, browser, is_local, ui_path, ff_path, av_url):
+    def __init__(self, browser, is_online, ui_path, ff_path, av_url):
         """
         Initializes a WebDriverFactory object.
 
@@ -47,10 +47,7 @@ class WebDriverFactory:
         if browser is None:
             browser = "chrome"
         self.browser = browser.lower()
-        if is_local is None or is_local.lower() != "false":
-            self.is_local = True
-        else:
-            self.is_local = False
+        self.is_online = is_online
 
         self.server = CustomWebServer()
 
@@ -60,7 +57,7 @@ class WebDriverFactory:
         
         :returns: A WebDriver instance that is ready for testing.
         """
-        if self.is_local:
+        if not self.is_online:
             self.server.run_http_server()
             base_url = "http://127.0.0.1:8000/av_ui/AvidaED.html"
         else:
