@@ -55,11 +55,9 @@ Use
 
 First, if you are using a virtual environment, make sure that it is activated. You should see the name of the virtual environment in parentheses before each line you type in your command-line interface if the virtual environment is activated.
 
-The easiest way to run the tests is through the test suite files, located in the tests folder. The following command (simply typed into a command-line interface from the root folder of the project) will run all tests classified as 'basic':
+The easiest way to run the tests is through the test suite files, located in the tests folder. The following command (simply typed into a command-line interface from the root folder of the project) will run the test suite:
 
-``python tests/test_suite_basic.py``
-
-There is also a test suite for tests that are considered 'advanced' -- however, this suite does not run any tests, because there are none marked as advanced. If you would like to inspect this file, it is located at ``tests\test_suite_advanced.py``.
+``python tests/suite.py``
 
 It is possible to run a single test file (containing one or more test cases with a common purpose) using the following command:
 
