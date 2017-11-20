@@ -9,7 +9,6 @@ class OrgRepControlsTest(BaseTest):
     reproduction.
     """
 
-    @pytest.mark.run()
     def test_org_rep_ctrl_startup(self):
         """
         Tests that the control for Organism Reproduction are not enabled on
@@ -22,7 +21,6 @@ class OrgRepControlsTest(BaseTest):
         assert self.op.org_rep_controls_disabled()
         assert self.op.get_cycle() == 0
 
-    @pytest.mark.run()
     def test_org_rep_ctrl_functionality(self):
         """
         Tests that the controls for Organism Reproduction work as intended once

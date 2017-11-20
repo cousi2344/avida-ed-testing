@@ -8,7 +8,6 @@ class ExperimentControlsTest(BaseTest):
     Test class that runs a very simple experiment in Avida-ED.
     """
 
-    @pytest.mark.run()
     def test_exp_run_controls(self):
         """
         Tests that a simple experiment can be run and that running, pausing, and

@@ -10,7 +10,6 @@ class MenuBarStartupTest(BaseTest):
     accessible at startup.
     """
 
-    @pytest.mark.run()
     def test_freezer_menu_launch(self):
         """
         Tests that the correct menu options in the Freezer tab are usable on
@@ -22,7 +21,6 @@ class MenuBarStartupTest(BaseTest):
         assert not self.bp.can_save_selected_org()
         assert not self.bp.can_save_offspring_org()
 
-    @pytest.mark.run()
     def test_control_menu_launch(self):
         """
         Tests that the correct menu options in the Control tab are usable on

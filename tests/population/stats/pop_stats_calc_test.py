@@ -9,7 +9,6 @@ class PopulationStatsCalculationCheck(BaseTest):
     the Population page.
     """
 
-    @pytest.mark.run()
     def test_check_calcs(self):
         """
         Tests calculation of avg fitness, offspring cost, and energy acq. rate (as well as # of viable orgs).

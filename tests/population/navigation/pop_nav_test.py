@@ -9,7 +9,6 @@ class PopulationNavigationTest(BaseTest):
     the Population page.
     """
 
-    @pytest.mark.run()
     def test_toggle_env_settings(self):
         """
         Tests toggling the Environmental Settings panel on and off.
@@ -27,7 +26,6 @@ class PopulationNavigationTest(BaseTest):
         assert self.pp.env_settings_displayed()
         assert not self.pp.grid_displayed()
 
-    @pytest.mark.run()
     def test_toggle_pop_stats(self):
         """
         Tests toggling the Population Statistics window on and off.

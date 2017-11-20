@@ -9,7 +9,6 @@ class PopStatsSanityTest(BaseTest):
     statistics information is valid.
     """
 
-    @pytest.mark.run()
     def test_pop_stats_sanity_ancestor(self):
         """
         Tests that running an experiment with @ancestor for a brief period of
@@ -36,7 +35,6 @@ class PopStatsSanityTest(BaseTest):
         assert self.pp.get_pop_avg_offspring_cost() > 0
         assert self.pp.get_pop_avg_age() >= 0
 
-    @pytest.mark.run()
     def test_pop_stats_sanity_allfxns(self):
         """
         Tests that running an experiment with @all_functions does not create

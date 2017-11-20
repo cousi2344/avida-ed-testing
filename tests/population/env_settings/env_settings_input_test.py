@@ -9,7 +9,6 @@ class EnvSettingsInputTest(BaseTest):
     edited through the Environmental Settings pane in the Population window.
     """
 
-    @pytest.mark.run()
     def test_input_dishsize_negnum(self):
         """
         Tests that crashes and unexpected behaviors do not occur if a negative
@@ -30,7 +29,6 @@ class EnvSettingsInputTest(BaseTest):
         # Wait for a short period so that response to run attempt occurs.
         self.bp.util.sleep(3)
 
-    @pytest.mark.run()
     def test_input_dishsize_zero(self):
         """
         Tests that crashes and unexpected behaviors do not occur if a dish size
@@ -51,7 +49,6 @@ class EnvSettingsInputTest(BaseTest):
         # Wait for a short period so that response to run attempt occurs.
         self.bp.util.sleep(3)
 
-    @pytest.mark.run()
     def test_input_dishsize_str(self):
         """
         Tests that crashes and unexpected behaviors do not occur if a
@@ -71,7 +68,6 @@ class EnvSettingsInputTest(BaseTest):
         # Wait for a short period so that response to run attempt occurs.
         self.bp.util.sleep(3)
 
-    @pytest.mark.run()
     def test_input_mut(self):
         """
         Tests that crashes and unexpected behavior do not occur if bad input is
