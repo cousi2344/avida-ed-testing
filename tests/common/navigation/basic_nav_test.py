@@ -29,7 +29,7 @@ class BasicNavigationTest(BaseTest):
         assert self.bp.population_displayed()
         time.sleep(3)
 
-    @pytest.mark.run(order=1)
+    @pytest.mark.run()
     def test_go_to_organism(self):
         """
         Tests navigating to the Organism page.

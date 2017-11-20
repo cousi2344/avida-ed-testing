@@ -10,9 +10,9 @@ import sys
 
 if __name__ == '__main__':
     common_path = r"tests/common"
-    pop_basic_path = r"tests/population/population_basic"
-    org_basic_path = r"tests/organism/organism_basic"
-    analysis_basic_path = r"tests/analysis/analysis_basic"
+    pop_basic_path = r"tests/population"
+    org_basic_path = r"tests/organism"
+    analysis_basic_path = r"tests/analysis"
 
     pytest_args = ["-v",
                    "--junitxml=./output/junit_xml/junit_xml.log",

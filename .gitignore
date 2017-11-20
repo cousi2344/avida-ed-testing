@@ -58,8 +58,8 @@ tests/common/main_menu/__pycache__/
 tests/common/navigation/output/
 tests/population/__pycache__/
 tests/population/population_basic/__pycache__/
-tests/population/population_basic/env_settings/__pycache__/
-tests/population/population_basic/navigation/__pycache__/
+tests/population/env_settings/__pycache__/
+tests/population/navigation/__pycache__/
 utilities/__pycache__/simple_web_server.cpython-36.pyc
 /config_files/config.json
 /.cache/
