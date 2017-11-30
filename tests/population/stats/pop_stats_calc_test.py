@@ -3,7 +3,7 @@ import pytest
 from tests.base_test import BaseTest
 
 
-class PopulationStatsCalculationCheck(BaseTest):
+class TestPopulationStatsCalculation(BaseTest):
     """
     Test class that checks for incorrect calculation of statistics values.
     the Population page.

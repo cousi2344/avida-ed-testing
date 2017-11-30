@@ -3,7 +3,7 @@ import pytest
 from tests.base_test import BaseTest
 
 
-class FileTabTest(BaseTest):
+class TestFileTab(BaseTest):
     """
     Test class that tests the File tab of the main menu bar.
     """

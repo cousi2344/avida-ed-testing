@@ -3,7 +3,7 @@ import pytest
 from tests.base_test import BaseTest
 
 
-class OrgRepControlsTest(BaseTest):
+class TestOrgRepControls(BaseTest):
     """
     Test class that runs simple experiments with the organism window
     reproduction.

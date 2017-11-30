@@ -3,7 +3,7 @@ import pytest
 from tests.base_test import BaseTest
 
 
-class AvidaEdTabTest(BaseTest):
+class TestAvidaEdTab(BaseTest):
     """
     Test class that tests the Avida-ED tab of the main menu bar.
     """

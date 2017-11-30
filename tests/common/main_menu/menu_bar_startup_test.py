@@ -3,7 +3,7 @@ import pytest
 from tests.base_test import BaseTest
 
 
-class MenuBarStartupTest(BaseTest):
+class TestMenuBarStartup(BaseTest):
     """
     Test class that tests the initial configuration of the main menu bar at the
     top of the Avida-ED website to ensure that the correct menu options are

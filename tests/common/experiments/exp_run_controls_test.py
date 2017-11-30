@@ -3,7 +3,7 @@ import pytest
 from tests.base_test import BaseTest
 
 
-class ExperimentControlsTest(BaseTest):
+class TestExperimentControls(BaseTest):
     """
     Test class that runs a very simple experiment in Avida-ED.
     """

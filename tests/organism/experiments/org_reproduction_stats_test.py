@@ -3,7 +3,7 @@ import pytest
 from tests.base_test import BaseTest
 
 
-class OrgRepStatsTest(BaseTest):
+class TestOrgRepStats(BaseTest):
     """
     Test class that runs simple experiments with the organism window
     reproduction, specifically regarding to statistics.

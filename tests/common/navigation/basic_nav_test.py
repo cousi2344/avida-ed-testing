@@ -4,7 +4,7 @@ import time
 from tests.base_test import BaseTest
 
 
-class BasicNavigationTest(BaseTest):
+class TestBasicNavigation(BaseTest):
     """
     Test class that tests navigation between the major specializations
     within the Avida-ED website.

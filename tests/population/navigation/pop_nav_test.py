@@ -3,7 +3,7 @@ import pytest
 from tests.base_test import BaseTest
 
 
-class PopulationNavigationTest(BaseTest):
+class TestPopulationNavigation(BaseTest):
     """
     Test class that tests navigation between various panels and sub-specializations within
     the Population page.

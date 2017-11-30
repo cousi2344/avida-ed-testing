@@ -3,7 +3,7 @@ import pytest
 from tests.base_test import BaseTest
 
 
-class PopStatsSanityTest(BaseTest):
+class TestPopStatsSanity(BaseTest):
     """
     Test class that runs a simple experiment that ensures that population
     statistics information is valid.

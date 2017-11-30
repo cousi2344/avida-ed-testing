@@ -4,7 +4,7 @@ import time
 from tests.base_test import BaseTest
 
 
-class OrganismNavigationTest(BaseTest):
+class TestOrganismNavigation(BaseTest):
     """
     Test class that tests navigation between the panels and other sub-specializations
     within the Organism page.

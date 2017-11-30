@@ -3,7 +3,7 @@ import pytest
 from tests.base_test import BaseTest
 
 
-class EnvSettingsInputTest(BaseTest):
+class TestEnvSettingsInput(BaseTest):
     """
     Test class that checks the input validation on the variables that can be
     edited through the Environmental Settings pane in the Population window.
