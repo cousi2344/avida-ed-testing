@@ -1,5 +1,10 @@
 import pytest
 
+from base.base_page import BasePage
+from specializations.analysis.analysis_page import AnalysisPage
+from specializations.organism.organism_page import OrganismPage
+from specializations.population.population_page import PopulationPage
+
 from tests.base_test import BaseTest
 
 
@@ -8,7 +13,9 @@ class TestExperimentControls(BaseTest):
     Test class that runs a very simple experiment in Avida-ED.
     """
 
-    def test_exp_run_controls(self):
+    def test_exp_run_controls(self,
+                              bp: BasePage,
+                              pp: PopulationPage):
         """
         Tests that a simple experiment can be run and that running, pausing, and
         doing one update work as expected.
@@ -17,26 +24,26 @@ class TestExperimentControls(BaseTest):
         """
 
         # Add @ancestor to dish.
-        self.bp.add_ancestor_to_dish()
+        bp.add_ancestor_to_dish()
 
         # Run the experiment.
-        self.bp.run_from_menu()
-        self.bp.util.sleep(3, "Waiting for updates to occur.")
+        bp.run_from_menu()
+        bp.util.sleep(3, "Waiting for updates to occur.")
 
         # Assert that updates have occurred.
-        assert self.pp.get_pop_current_update() > 0
-        assert self.pp.gr_get_pop_current_update() > 0
+        assert pp.get_pop_current_update() > 0
+        assert pp.gr_get_pop_current_update() > 0
 
         # Pause the experiment.
-        self.bp.pause_from_menu()
-        self.bp.util.sleep(1, "Making sure pause goes into effect.")
+        bp.pause_from_menu()
+        bp.util.sleep(1, "Making sure pause goes into effect.")
 
         # Get current update, wait a few seconds, assert it has not changed.
-        current_update = self.pp.get_pop_current_update()
-        self.bp.util.sleep(3, "Ensuring no updates occur after pause.")
-        assert self.pp.get_pop_current_update() == current_update
+        current_update = pp.get_pop_current_update()
+        bp.util.sleep(3, "Ensuring no updates occur after pause.")
+        assert pp.get_pop_current_update() == current_update
 
         # Do one update
-        self.bp.forward_from_menu()
-        self.bp.util.sleep(1, "Making sure update has time to occur.")
-        assert (self.pp.get_pop_current_update() - current_update) == 1
+        bp.forward_from_menu()
+        bp.util.sleep(1, "Making sure update has time to occur.")
+        assert (pp.get_pop_current_update() - current_update) == 1

@@ -15,8 +15,13 @@ class BaseTest:
     accessible at startup.
     """
 
+    bp = None
+    pp = None
+    op = None
+    ap = None
+
     @pytest.yield_fixture(autouse=True, scope="class")
-    def class_setup(self, request, driver_setup):
+    def class_setup(self, request, bp: BasePage):
         """
         Sets up class prior to run. Adds necessary variables to the class and
         waits for the splash screen to go away.
@@ -26,28 +31,32 @@ class BaseTest:
 
         :return: None.
         """
-
-        # Set up driver
-        request.cls.driver = driver_setup
-
-        # Set up base page
-        request.cls.bp = BasePage(self.driver)
-
-        # Set up objects for interacting with other pages / specializations.
-        request.cls.pp = PopulationPage(self.driver)
-        request.cls.op = OrganismPage(self.driver)
-        request.cls.ap = AnalysisPage(self.driver)
-
         # Wait for splash screen to go away
-        request.cls.bp.wait_until_splash_gone()
+        bp.wait_until_splash_gone()
 
         yield
 
         # Cleanup of logger object.
-        request.cls.bp.close_logger()
+        bp.close_logger()
+
+    @pytest.fixture(scope="class")
+    def bp(self, driver_setup):
+        return BasePage(driver_setup)
+
+    @pytest.fixture(scope="class")
+    def pp(self, driver_setup):
+        return PopulationPage(driver_setup)
+
+    @pytest.fixture(scope="class")
+    def op(self, driver_setup):
+        return OrganismPage(driver_setup)
+
+    @pytest.fixture(scope="class")
+    def ap(self, driver_setup):
+        return AnalysisPage(driver_setup)
 
     @pytest.yield_fixture(autouse=True, scope="function")
-    def closing_assertions(self, class_setup):
+    def closing_assertions(self, class_setup, bp: BasePage):
         """
         Performs basic assertions that should evaluate to True after every test
         (e.g. crash report not displayed, etc.).
@@ -55,10 +64,10 @@ class BaseTest:
         :return: None.
         """
         yield
-        assert not self.bp.crash_report_displayed()
+        assert not bp.crash_report_displayed()
 
     @pytest.yield_fixture()
-    def soft_reset(self, closing_assertions):
+    def soft_reset(self, closing_assertions, pp: PopulationPage):
         """
         Performs a 'soft reset" at the beginning of an experiment by resetting
         the dish. In the future (when tests with Organism and Analysis window
@@ -70,10 +79,10 @@ class BaseTest:
         :return:
         """
         yield
-        self.pp.new_exp_discard()
+        pp.new_exp_discard()
 
     @pytest.yield_fixture(autouse=True, scope="function")
-    def hard_reset(self, closing_assertions):
+    def hard_reset(self, closing_assertions, bp: BasePage):
         """
         Performs a 'hard reset' at the beginning of an experiment by refreshing
         the Avida-ED webpage and waits for it to load completely.
@@ -83,5 +92,5 @@ class BaseTest:
         :return: None.
         """
         yield
-        self.bp.refresh_avida_ed()
+        bp.refresh_avida_ed()
 

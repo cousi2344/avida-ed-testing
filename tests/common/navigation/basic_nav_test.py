@@ -1,5 +1,9 @@
 import pytest
-import time
+
+from base.base_page import BasePage
+from specializations.analysis.analysis_page import AnalysisPage
+from specializations.organism.organism_page import OrganismPage
+from specializations.population.population_page import PopulationPage
 
 from tests.base_test import BaseTest
 
@@ -15,7 +19,8 @@ class TestBasicNavigation(BaseTest):
     one of those three parts of the site.
     """
 
-    def test_go_to_population(self):
+    def test_go_to_population(self,
+                              bp: BasePage):
         """
         Tests navigating to the Population page.
         
@@ -24,26 +29,28 @@ class TestBasicNavigation(BaseTest):
         
         :return: None. 
         """
-        self.bp.go_to_population()
-        assert self.bp.population_displayed()
-        time.sleep(3)
+        bp.go_to_population()
+        assert bp.population_displayed()
+        bp.util.sleep(3)
 
-    def test_go_to_organism(self):
+    def test_go_to_organism(self,
+                            bp: BasePage):
         """
         Tests navigating to the Organism page.
         
         :return: None.
         """
-        self.bp.go_to_organism()
-        assert self.bp.organism_displayed()
-        time.sleep(3)
+        bp.go_to_organism()
+        assert bp.organism_displayed()
+        bp.util.sleep(3)
 
-    def test_go_to_analysis(self):
+    def test_go_to_analysis(self,
+                            bp: BasePage):
         """
         Tests navigating to the Analysis page.
         
         :return: None. 
         """
-        self.bp.go_to_analysis()
-        assert self.bp.analysis_displayed()
-        time.sleep(3)
+        bp.go_to_analysis()
+        assert bp.analysis_displayed()
+        bp.util.sleep(3)
