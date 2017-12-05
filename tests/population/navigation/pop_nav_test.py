@@ -1,8 +1,10 @@
 import pytest
+
 from base.base_page import BasePage
 from specializations.analysis.analysis_page import AnalysisPage
 from specializations.organism.organism_page import OrganismPage
 from specializations.population.population_page import PopulationPage
+
 from tests.base_test import BaseTest
 
 
