@@ -48,6 +48,6 @@ tests/common/navigation/output/
 /config_files/config.json
 /.cache/
 downloads/
-**/__pycache__/
-**/__init.cpython-36.pyc
+__pycache__/
+**/__init__.cpython-36.pyc
 

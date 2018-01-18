@@ -48,6 +48,11 @@ class PopulationPage(BasePage):
     __new_dish_discard_xpath = "//*/span[@widgetid='newDiscard']"
     __new_dish_saveconf_xpath = "//*/span[@widgetid='newSaveConfig']"
     __new_dish_savepop_xpath = "//*/span[@widgetid='newSaveWorld']"
+    __size_cells_valid1 = "for a total of "
+    __size_cells_valid2 = " cells"
+    __size_cells_default = "There are 900 cells by default"
+    __size_cells_cols_error = "Number of columns must be a valid number."
+    __size_cells_rows_error = "Number of rows must be a valid number"
 
     def __init__(self, driver):
         """
@@ -787,4 +792,32 @@ class PopulationPage(BasePage):
         """
         return int(self.get_text(self.__viable_num_label))
 
+
+
+    def check_size_cells_error(self):
+        self.go_to_population()
+        self.show_env_settings()
+        size_cells_text = self.get_element("sizeCells")
+        text = self.get_text(element=size_cells_text)
+        self.hide_env_settings()
+
+        try:
+            float(self.get_pop_cols())
+            float(self.get_pop_rows())
+            try:
+                grid_size = int(self.get_pop_cols()) * int(self.get_pop_rows())
+                expected_text = self.__size_cells_valid1 + str(grid_size) + self.__size_cells_valid2
+                if text == self.__size_cells_default or text == expected_text:
+                    return False
+                return True
+
+            except ValueError:
+                #need to check that there's an error message that showed up
+                return False
+
+        except ValueError:
+            if self.__size_cells_cols_error in text or self.__size_cells_rows_error in text:
+                return True
+
+            return False
 
