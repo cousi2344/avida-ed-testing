@@ -1,5 +1,4 @@
 import pytest
-import unittest
 
 from base.base_page import BasePage
 
@@ -9,7 +8,7 @@ from specializations.analysis.analysis_page import AnalysisPage
 
 
 @pytest.mark.usefixtures("driver_setup")
-class BaseTest(unittest.TestCase):
+class BaseTest:
     """
     Test class that tests the initial configuration of the main menu bar at the
     top of the Avida-ED website to ensure that the correct menu options are
