@@ -39,7 +39,7 @@ Thumbs.db
 
 # Custom #
 ##########
-.idea/workspace.xml\
+.idea/workspace.xml
 base/output/
 output/
 
@@ -50,4 +50,5 @@ tests/common/navigation/output/
 downloads/
 __pycache__/
 **/__init__.cpython-36.pyc
+venv/
 
