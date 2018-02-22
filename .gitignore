@@ -40,6 +40,8 @@ Thumbs.db
 # Custom #
 ##########
 .idea/workspace.xml
+.idea/avida_ed_testing.iml
+.idea/misc.xml
 base/output/
 output/
 
