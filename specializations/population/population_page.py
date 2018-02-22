@@ -818,6 +818,5 @@ class PopulationPage(BasePage):
         except ValueError:
             if self.__size_cells_cols_error in text or self.__size_cells_rows_error in text:
                 return True
-
             return False
 

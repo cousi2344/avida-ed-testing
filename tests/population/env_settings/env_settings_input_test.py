@@ -28,6 +28,7 @@ class TestEnvSettingsInput(BaseTest):
         pp.show_env_settings()
         pp.edit_dish_cols("-12")
         pp.hide_env_settings()
+        assert pp.check_size_cells_error()
 
         # Add an organism to the experiment and try to run it.
         bp.add_ancestor_to_dish()
@@ -50,6 +51,7 @@ class TestEnvSettingsInput(BaseTest):
         pp.show_env_settings()
         pp.edit_dish_cols("0")
         pp.hide_env_settings()
+        assert pp.check_size_cells_error()
 
         # Add an organism to the experiment and try to run it.
         bp.add_ancestor_to_dish()
@@ -72,6 +74,23 @@ class TestEnvSettingsInput(BaseTest):
         pp.show_env_settings()
         pp.edit_dish_cols("sample text")
         pp.hide_env_settings()
+        assert pp.check_size_cells_error()
+
+        # Add an organism to the experiment and try to run it.
+        bp.add_ancestor_to_dish()
+        pp.run_from_pop()
+
+        # Wait for a short period so that response to run attempt occurs.
+        bp.util.sleep(3)
+
+    def test_input_floating_point(self,
+                                  bp: BasePage,
+                                  pp: PopulationPage):
+        # Edit dish size with nonsensical values.
+        pp.show_env_settings()
+        pp.edit_dish_cols("10.5")
+        pp.hide_env_settings()
+        assert pp.check_size_cells_error()
 
         # Add an organism to the experiment and try to run it.
         bp.add_ancestor_to_dish()
