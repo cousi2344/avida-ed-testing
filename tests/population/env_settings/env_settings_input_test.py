@@ -86,7 +86,14 @@ class TestEnvSettingsInput(BaseTest):
     def test_input_floating_point(self,
                                   bp: BasePage,
                                   pp: PopulationPage):
-        # Edit dish size with nonsensical values.
+        """
+        Tests that crashes and unexpected behaviors do not occur if a
+        floating point number is given in the dish size boxes.
+
+        :return: None.
+        """
+
+        # Edit dish size with a floating point number.
         pp.show_env_settings()
         pp.edit_dish_cols("10.5")
         pp.hide_env_settings()

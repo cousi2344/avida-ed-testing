@@ -795,6 +795,11 @@ class PopulationPage(BasePage):
 
 
     def check_size_cells_error(self):
+        """
+        Makes sure giving an invalid input to the size cells boxes displays the correct message
+
+        :return: True if correct error message is shown, False if not.
+        """
         self.go_to_population()
         self.show_env_settings()
         size_cells_text = self.get_element("sizeCells")
@@ -812,7 +817,6 @@ class PopulationPage(BasePage):
                 return True
 
             except ValueError:
-                #need to check that there's an error message that showed up
                 return False
 
         except ValueError:
