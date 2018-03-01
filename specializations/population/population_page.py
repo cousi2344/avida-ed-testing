@@ -53,6 +53,9 @@ class PopulationPage(BasePage):
     __size_cells_default = "There are 900 cells by default"
     __size_cells_cols_error = "Number of columns must be a valid number."
     __size_cells_rows_error = "Number of rows must be a valid number"
+    __mutation_rate_too_big = "Mutation rate must be 100% or less."
+    __mutation_rate_invalid_error = "Mutation rate must be a valid number."
+    __mutation_rate_negative_error = "Mutation rate must be greater than zero percent."
 
     def __init__(self, driver):
         """
@@ -824,3 +827,28 @@ class PopulationPage(BasePage):
                 return True
             return False
 
+    def check_mutation_rate_error(self):
+        """
+        Makes sure giving an invalid input to the mutation rate box displays the correct message
+
+        :return: True if correct error message is shown, False if not.
+        """
+        self.go_to_population()
+        self.show_env_settings()
+        mutation_error_element = self.get_element("muteError")
+        text = self.get_text(element=mutation_error_element)
+        self.hide_env_settings()
+
+        try:
+            mutation_rate = float(self.get_pop_mute_rate_string())
+            if 100 < mutation_rate < 1000 and self.__mutation_rate_too_big in text:
+                return True
+            elif mutation_rate < 0 and self.__mutation_rate_negative_error in text:
+                return True
+            return False
+
+        # if the mutation rate is a string or it's so big it has a comma in it, ValueError is raised
+        except ValueError:
+            if self.__mutation_rate_invalid_error in text:
+                return True
+            return False
